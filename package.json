@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/DevEke/Movie-API#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "lodash": "^4.17.20"
   },
   "devDependencies": {
