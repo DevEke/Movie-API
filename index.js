@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.use(express.static('public'));
+
 // GET requests
 app.get('/movies', (req, res) => {
     res.json(data);
