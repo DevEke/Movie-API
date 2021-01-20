@@ -1,12 +1,13 @@
-import { createServer } from "http";
-import { parse } from "url";
-import { appendFile, readFile } from "fs";
+const http = require("http"),
+  url = require("url"),
+  fs = require("fs");
 
-createServer((request, response) => {
+http
+  .createServer((request, response) => {
     let address = request.url,
-      x = parse(address, true),
+      x = url.parse(address, true),
       filePath = "";
-    appendFile(
+    fs.appendFile(
       "log.txt",
       "URL: " + address + "\nTime: " + new Date() + "\n\n",
       (error) => {
@@ -24,7 +25,7 @@ createServer((request, response) => {
       filePath = "index.html";
     }
 
-    readFile(filePath, (error, data) => {
+    fs.readFile(filePath, (error, data) => {
       if (error) {
         throw error;
       }
@@ -33,6 +34,6 @@ createServer((request, response) => {
       response.end("Hello Node!");
     });
   })
-  .listen(8081);
+  .listen(8080);
 
-console.log("My first Node test server is running out of port 8081.");
+console.log("My first Node test server is running out of port 8080.");
