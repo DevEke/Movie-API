@@ -10,3 +10,6 @@ app.get('/', (req, res) => {
     res.end("Movie App Home");
 })
 
+app.listen(8080, () => {
+    console.log('Listening on port 8080');
+});
