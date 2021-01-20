@@ -20,5 +20,8 @@
   "homepage": "https://github.com/DevEke/Movie-API#readme",
   "dependencies": {
     "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0"
   }
 }
