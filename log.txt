@@ -4,3 +4,9 @@ Time: Wed Jan 20 2021 10:24:50 GMT-0600 (Central Standard Time)
 URL: /favicon.ico
 Time: Wed Jan 20 2021 10:24:50 GMT-0600 (Central Standard Time)
 
+URL: /
+Time: Wed Jan 20 2021 10:27:03 GMT-0600 (Central Standard Time)
+
+URL: /favicon.ico
+Time: Wed Jan 20 2021 10:27:04 GMT-0600 (Central Standard Time)
+
