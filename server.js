@@ -10,7 +10,7 @@ http
     fs.appendFile(
       "log.txt",
       "URL: " + address + "\nTime: " + new Date() + "\n\n",
-      error => {
+      (error) => {
         if (error) {
           throw error;
         } else {
