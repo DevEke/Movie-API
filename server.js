@@ -1,13 +1,12 @@
-const http = require("http"),
-  url = require("url"),
-  fs = require("fs");
+import { createServer } from "http";
+import { parse } from "url";
+import { appendFile, readFile } from "fs";
 
-http
-  .createServer((request, response) => {
+createServer((request, response) => {
     let address = request.url,
-      x = url.parse(address, true),
+      x = parse(address, true),
       filePath = "";
-    fs.appendFile(
+    appendFile(
       "log.txt",
       "URL: " + address + "\nTime: " + new Date() + "\n\n",
       (error) => {
@@ -25,7 +24,7 @@ http
       filePath = "index.html";
     }
 
-    fs.readFile(filePath, (error, data) => {
+    readFile(filePath, (error, data) => {
       if (error) {
         throw error;
       }
