@@ -31,7 +31,7 @@ http
       }
       response.writeHead(200, { "Content-Type": "text/plain" });
       response.write(data);
-      response.end("Hello Node!");
+      response.end();
     });
   })
   .listen(8080);
