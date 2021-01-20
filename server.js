@@ -19,8 +19,8 @@ http
       }
     );
 
-    if (x.pathName.includes("documentation")) {
-      filePath = __dirname + "/documentation.html";
+    if (x.pathName.includes("document")) {
+      filePath = __dirname + "/document.html";
     } else {
       filePath = "index.html";
     }
