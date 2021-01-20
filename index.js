@@ -13,7 +13,7 @@ app.get('/movies', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.end("Movie App Home");
+    res.send("Movie App Home");
 })
 
 app.listen(8080, () => {
