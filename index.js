@@ -82,10 +82,36 @@ app.get('/movies/:title', (req, res) => {
     }));
 })
 
-app.get ('/genres/:name', (req, res) => {
-    let message = "Successful GET request returning information about genre";
+app.get('/genres/:name', (req, res) => {
+    let message = 'Successful GET request returning information about genre';
     res.status(200).send(message);
 })
+
+app.get('/directors/:name', (req, res) => {
+    let message = 'Successful GET request returning information about directors';
+    res.status(200).send(message);
+})
+
+app.post('/users', (req, res) => {
+    let message = 'Successful POST request to create a new user';
+    res.status(200).send(message);
+})
+
+app.put('/users/:username', (req, res) => {
+    let message = 'Successful PUT request to update a user\'s username';
+    res.status(200).send(message);
+})
+
+app.put('/users/:email', (req, res) => {
+    let message = 'Successful PUT request to update a user\'s email';
+    res.status(200).send(message);
+})
+
+app.put('/users/:password', (req, res) => {
+    let message = 'Successful PUT request to update a user\'s password';
+    res.status(200).send(message);
+})
+
 
 // Listening Port
 app.listen(8080, () => {
