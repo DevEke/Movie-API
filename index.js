@@ -71,7 +71,8 @@ app.use((err, req, res, next) => {
 
 // GET requests
 app.get('/', (req, res) => {
-    res.send("Movie App Home");
+    let message = "Movie App Home";
+    res.status(200).send(message);
 })
 
 app.get('/movies', (req, res) => {
@@ -99,28 +100,28 @@ app.get('/directors/:name', (req, res) => {
 // POST Requests
 app.post('/users', (req, res) => {
     let message = 'Successful POST request to create a new user';
-    res.status(200).send(message);
+    res.status(201).send(message);
 })
 
 app.post('/users/:username/favorites', (req, res) => {
     let message = 'Successful POST request to add a movie to the favorites list';
-    res.status(200).send(message);
+    res.status(201).send(message);
 })
 
 // PUT Requests
 app.put('/users/:username/username', (req, res) => {
     let message = 'Successful PUT request to update a user\'s username';
-    res.status(200).send(message);
+    res.status(201).send(message);
 })
 
 app.put('/users/:username/email', (req, res) => {
     let message = 'Successful PUT request to update a user\'s email';
-    res.status(200).send(message);
+    res.status(201).send(message);
 })
 
 app.put('/users/:username/password', (req, res) => {
     let message = 'Successful PUT request to update a user\'s password';
-    res.status(200).send(message);
+    res.status(201).send(message);
 })
 
 
