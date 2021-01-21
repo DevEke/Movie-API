@@ -92,11 +92,19 @@ app.get('/directors/:name', (req, res) => {
     res.status(200).send(message);
 })
 
+
+// POST Requests
 app.post('/users', (req, res) => {
     let message = 'Successful POST request to create a new user';
     res.status(200).send(message);
 })
 
+app.post('/users/:username/favorites', (req, res) => {
+    let message = 'Successful POST request to add a movie to the favorites list';
+    res.status(200).send(message);
+})
+
+// PUT Requests
 app.put('/users/:username', (req, res) => {
     let message = 'Successful PUT request to update a user\'s username';
     res.status(200).send(message);
@@ -109,6 +117,17 @@ app.put('/users/:email', (req, res) => {
 
 app.put('/users/:password', (req, res) => {
     let message = 'Successful PUT request to update a user\'s password';
+    res.status(200).send(message);
+})
+
+//DELETE Requests
+app.delete('/users/:username/favorites', (req, res) => {
+    let message = 'Successful DELETE request to remove a movie from the user\'s favorite list';
+    res.status(200).send(message);
+})
+
+app.delete('/users/:email', (req, res) => {
+    let message = 'Successful DELETE request to unregister a user';
     res.status(200).send(message);
 })
 
