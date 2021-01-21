@@ -5,17 +5,18 @@
     <title>Movie Api</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&family=Oswald:wght@600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <h1>Documentation for Movie API</h1>
     <table>
       <thead>
         <tr>
-          <td>Business Logic</td>
-          <td>URL</td>
-          <td>HTTP Method</td>
-          <td>Request Format</td>
-          <td>Response Format</td>
+          <th>Business Logic</th>
+          <th>URL</th>
+          <th>HTTP Method</th>
+          <th>Request Format</th>
+          <th>Response Format</th>
         </tr>
       </thead>
       <tbody>
@@ -59,21 +60,21 @@
           <td>/users/[username]</td>
           <td>PUT</td>
           <td>None</td>
-          <td>A text confirmation message that the information has been succesfully updated</td>
+          <td>A text confirmation message that the username has been succesfully updated</td>
         </tr>
         <tr>
           <td>Updates a user's password</td>
           <td>/users/[password]</td>
           <td>PUT</td>
           <td>None</td>
-          <td>A text confirmation message that the information has been succesfully updated</td>
+          <td>A text confirmation message that the password has been succesfully updated</td>
         </tr>
         <tr>
           <td>Updates a user's email</td>
           <td>/users/[email]</td>
           <td>PUT</td>
           <td>None</td>
-          <td>A text confirmation message that the information has been succesfully updated</td>
+          <td>A text confirmation message that the email has been succesfully updated</td>
         </tr>
         <tr>
           <td>Adds a movie to a user's favorites list</td>
@@ -87,7 +88,7 @@
           <td>/users/[username]/favorites</td>
           <td>DELETE</td>
           <td>None</td>
-          <td>A text and visual confirmation message that the movie has been removed from the user;s favorites list</td>
+          <td>A text and visual confirmation message that the movie has been removed from the user's favorites list</td>
         </tr>
         <tr>
           <td>Deletes a users account by their email address</td>

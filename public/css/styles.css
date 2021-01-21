@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+}
+
+table, thead, tbody, th, tr, td {
+    border-bottom: 1px solid #eee;
+    border-collapse: collapse;
+}
+table {
+    width: 60%;
+}
+thead {
+    font-family: 'Lato', sans-serif;
+    background-color: #4193FF;
+    color: white;
+}
+
+th {
+    height: 30px;
+    padding: 10px;
+    text-align: left;
+    border: 2px solid white;
+    font-weight: 300;
+}
+td {
+    padding: 15px;
+    border-left: 2px solid #eee;
+    border-right: 2px solid #eee;
+}
+tbody {
+    font-family: 'Lato', sans-serif;
+}
