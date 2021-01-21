@@ -6,10 +6,81 @@
   </head>
   <body>
     <h1>Documentation for Movie API</h1>
-    <p>
-      This API will allow users the ability to retrieve movie data (titles,
-      actors/actresses, release dates, ratings, etc.). It will also allow users
-      to create an account and save movies to their favorites list.
-    </p>
+    <table>
+      <thead>
+        <tr>
+          <td>Business Logic</td>
+          <td>URL</td>
+          <td>HTTP Method</td>
+          <td>Request Format</td>
+          <td>Response Format</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gets a list of all movies</td>
+          <td>/movies</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about all movies.</td>
+        </tr>
+        <tr>
+          <td>Get data about a single movie based on title</td>
+          <td>/movies/[Title]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about a single movie, containing description, genres, director, image URL, and whether its featured or not</td>
+        </tr>
+        <tr>
+          <td>Gets information about a genre based on the name</td>
+          <td>/genres/[Name]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about a single genre, containing name and description</td>
+        </tr>
+        <tr>
+          <td>Gets information about a direction based on the name</td>
+          <td>/directors/[Name]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about a single director, containing a bio, birth year, and death year</td>
+        </tr>
+        <tr>
+          <td>Creates a new user</td>
+          <td>/users</td>
+          <td>POST</td>
+          <td>A JSON object holding the users information, containing username, email address, and password.</td>
+          <td>A JSON object holding the users information, containing username, email address, and password, and a confirmation message</td>
+        </tr>
+        <tr>
+          <td>Updates a user's account information</td>
+          <td>/users/[username]</td>
+          <td>PUT</td>
+          <td>None</td>
+          <td>A text confirmation message that the information has been succesfully updated</td>
+        </tr>
+        <tr>
+          <td>Adds a movie to a user's favorites list</td>
+          <td>/users/favorites</td>
+          <td>POST</td>
+          <td>None</td>
+          <td>A text and visual confirmation message that the movie has been added to the user's favorites list</td>
+        </tr>
+        <tr>
+          <td>Removes a movie from a user's favorites list</td>
+          <td>/users/favorites</td>
+          <td>DELETE</td>
+          <td>None</td>
+          <td>A text and visual confirmation message that the movie has been removed from the user;s favorites list</td>
+        </tr>
+        <tr>
+          <td>Deletes a users account by their email address</td>
+          <td>/users/[email_address]</td>
+          <td>DELETE</td>
+          <td>None</td>
+          <td>A text and visual confirmation message that the user's account has been unregistered</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
