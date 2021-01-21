@@ -32,3 +32,11 @@ td {
     border-left: 2px solid #eee;
     border-right: 2px solid #eee;
 }
+
+td:first-child {
+    border-left: none;
+}
+
+td:last-child {
+    border-right: none;
+}
