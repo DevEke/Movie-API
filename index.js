@@ -82,6 +82,11 @@ app.get('/movies/:title', (req, res) => {
     }));
 })
 
+app.get ('/genres/:name', (req, res) => {
+    let message = "Successful GET request returning information about genre";
+    res.status(200).send(message);
+})
+
 // Listening Port
 app.listen(8080, () => {
     console.log('Listening on port 8080');
