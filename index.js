@@ -108,17 +108,17 @@ app.post('/users/:username/favorites', (req, res) => {
 })
 
 // PUT Requests
-app.put('/users/:username', (req, res) => {
+app.put('/users/:username/username', (req, res) => {
     let message = 'Successful PUT request to update a user\'s username';
     res.status(200).send(message);
 })
 
-app.put('/users/:email', (req, res) => {
+app.put('/users/:username/email', (req, res) => {
     let message = 'Successful PUT request to update a user\'s email';
     res.status(200).send(message);
 })
 
-app.put('/users/:password', (req, res) => {
+app.put('/users/:username/password', (req, res) => {
     let message = 'Successful PUT request to update a user\'s password';
     res.status(200).send(message);
 })
@@ -130,7 +130,7 @@ app.delete('/users/:username/favorites', (req, res) => {
     res.status(200).send(message);
 })
 
-app.delete('/users/:email', (req, res) => {
+app.delete('/users/:username', (req, res) => {
     let message = 'Successful DELETE request to unregister a user';
     res.status(200).send(message);
 })
