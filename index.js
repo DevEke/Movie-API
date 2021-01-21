@@ -60,11 +60,14 @@ let movies = [
 
 // Middleware
 app.use(express.static('public'));
+
 app.use(morgan('common'));
+
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send("Sorry, Something went wrong!");
 });
+
 
 // GET requests
 app.get('/', (req, res) => {
@@ -119,6 +122,7 @@ app.put('/users/:password', (req, res) => {
     let message = 'Successful PUT request to update a user\'s password';
     res.status(200).send(message);
 })
+
 
 //DELETE Requests
 app.delete('/users/:username/favorites', (req, res) => {

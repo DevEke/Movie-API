@@ -53,22 +53,36 @@
           <td>A JSON object holding the users information, containing username, email address, and password, and a confirmation message</td>
         </tr>
         <tr>
-          <td>Updates a user's account information</td>
+          <td>Updates a user's username</td>
           <td>/users/[username]</td>
           <td>PUT</td>
           <td>None</td>
           <td>A text confirmation message that the information has been succesfully updated</td>
         </tr>
         <tr>
+          <td>Updates a user's password</td>
+          <td>/users/[password]</td>
+          <td>PUT</td>
+          <td>None</td>
+          <td>A text confirmation message that the information has been succesfully updated</td>
+        </tr>
+        <tr>
+          <td>Updates a user's email</td>
+          <td>/users/[email]</td>
+          <td>PUT</td>
+          <td>None</td>
+          <td>A text confirmation message that the information has been succesfully updated</td>
+        </tr>
+        <tr>
           <td>Adds a movie to a user's favorites list</td>
-          <td>/users/favorites</td>
+          <td>/users/[username]/favorites</td>
           <td>POST</td>
           <td>None</td>
           <td>A text and visual confirmation message that the movie has been added to the user's favorites list</td>
         </tr>
         <tr>
           <td>Removes a movie from a user's favorites list</td>
-          <td>/users/favorites</td>
+          <td>/users/[username]/favorites</td>
           <td>DELETE</td>
           <td>None</td>
           <td>A text and visual confirmation message that the movie has been removed from the user;s favorites list</td>
