@@ -67,12 +67,19 @@ app.use((err, req, res, next) => {
 });
 
 // GET requests
-app.get('/movies', (req, res) => {
-    res.json(movies);
-});
-
 app.get('/', (req, res) => {
     res.send("Movie App Home");
+})
+
+app.get('/movies', (req, res) => {
+    res.json(movies);
+    res.status(200).send('Successful GET request returning list of all movies');
+});
+
+app.get('/movies/:title', (req, res) => {
+    res.json(movies.find((movie) => {
+        return movie.title === req.params.title
+    }));
 })
 
 // Listening Port
