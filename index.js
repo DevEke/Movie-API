@@ -1,3 +1,4 @@
+
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -158,7 +159,7 @@ app.put('/Users/:Email', (req, res) => {
 });
 
 app.put('/Users/:Password', (req, res) => {
-    Users.findOneAndUpdated({ Password: req.params.Password}, { $set: 
+    Users.findOneAndUpdate({ Password: req.params.Password}, { $set: 
         {
             Username: req.body.Username,
             Password: req.body.Password,
