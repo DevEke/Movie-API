@@ -9,61 +9,6 @@ mongoose.connect('mongodb://localhost:27017/MovieDB', { useNewUrlParser: true, u
 
 const app = express();
 
-// Movies List
-let movies = [
-    {
-        title: "Ocean's Eleven",
-        genres: ["Thriller", "Comedy", "Crime"],
-        director: "Steven Soderbergh"
-    },
-    {
-        title: "Ocean's Twelve",
-        genres: ["Thriller", "Comedy", "Crime"],
-        director: "Steven Soderbergh"
-    },
-    {
-        title: "Guardians of the Galaxy",
-        genres: ["Action", "Adventure", "Comedy"],
-        director: "James Gunn"
-    },
-    {
-        title: "Friday",
-        genres: ["Comedy", "Drama"],
-        director: "F. Gary Gary"
-    },
-    {
-        title: "Inception",
-        genres: ["Action", "Adventure", "Sci-Fi"],
-        director: "Christopher Nolan"
-    },
-    {
-        title: "Rush Hour",
-        genres: ["Action", "Comedy", "Crime"],
-        director: "Brett Ratner"
-    },
-    {
-        title: "V for Vendetta",
-        genres: ["Action", "Drama", "Sci-Fi"],
-        director: "James McTeigue"
-    },
-    {
-        title: "28 Weeks Later",
-        genres: ["Action", "Horror", "Sci-Fi"],
-        director: "Juan Carlos Fresnadillo"
-    },
-    {
-        title: "Avengers: Endgame",
-        genres: ["Action", "Adventure", "Drama"],
-        director: "Anthony Russo"
-    },
-    {
-        title: "SAW",
-        genres: ["Horror", "Mystery", "Crime"],
-        director: "James Wan"
-    }
-]
-
-
 // Middleware
 app.use(express.static('public'));
 
@@ -81,7 +26,7 @@ app.get('/', (req, res) => {
     res.status(200).send(message);
 })
 
-app.get('/movies', (req, res) => {
+app.get('/Movies', (req, res) => {
     Movies.find()
         .then((movies) => {
             res.status(200).json(movies);
@@ -92,7 +37,7 @@ app.get('/movies', (req, res) => {
         });
 });
 
-app.get('/users/:Username', (req, res) => {
+app.get('/Users/:Username', (req, res) => {
     Users.findOne({ Username: req.params.Username})
         .then((user) => {
             res.status(200).json(user);
@@ -103,7 +48,7 @@ app.get('/users/:Username', (req, res) => {
         });
 });
 
-app.get('/movies/:Title', (req, res) => {
+app.get('/Movies/:Title', (req, res) => {
     Movies.findOne({ Title: req.params.Title})
         .then((movie) => {
             res.status(200).json(movie);
@@ -114,7 +59,7 @@ app.get('/movies/:Title', (req, res) => {
         });
 });
 
-app.get('/genres/:Name', (req, res) => {
+app.get('/Genres/:Name', (req, res) => {
     Movies.findOne({ 'Genre.Name': req.params.Name })
         .then((genre) => {
             res.status(200).json(genre);
@@ -125,7 +70,7 @@ app.get('/genres/:Name', (req, res) => {
         });
 });
 
-app.get('/directors/:Name', (req, res) => {
+app.get('/Directors/:Name', (req, res) => {
     Movies.findOne({ 'Director.Name': req.params.Name })
         .then((director) => {
             res.status(200).json(director);
@@ -138,7 +83,7 @@ app.get('/directors/:Name', (req, res) => {
 
 
 // POST Requests
-app.post('/users', (req, res) => {
+app.post('/Users', (req, res) => {
     Users.findOne({ Username: req.body.Username })
         .then((user) => {
             if (user) {
@@ -161,7 +106,7 @@ app.post('/users', (req, res) => {
         });
 });
 
-app.post('/users/:Username/Movies/:MovieID', (req, res) => {
+app.post('/Users/:Username/FavoriteMovies/:MovieID', (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, { $push: 
         { FavoriteMovies: req.params.MovieID }
     }, {new: true})
@@ -175,7 +120,7 @@ app.post('/users/:Username/Movies/:MovieID', (req, res) => {
 });
 
 // PUT Requests
-app.put('/users/:Username', (req, res) => {
+app.put('/Users/:Username', (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username}, { $set: 
         {
             Username: req.body.Username,
@@ -193,7 +138,7 @@ app.put('/users/:Username', (req, res) => {
     });
 });
 
-app.put('/users/:Email', (req, res) => {
+app.put('/Users/:Email', (req, res) => {
     Users.findOneAndUpdate({ Email: req.params.Email}, { $set: 
         {
             Username: req.body.Username,
@@ -211,7 +156,7 @@ app.put('/users/:Email', (req, res) => {
     });
 });
 
-app.put('/users/:Password', (req, res) => {
+app.put('/Users/:Password', (req, res) => {
     Users.findOneAndUpdated({ Password: req.params.Password}, { $set: 
         {
             Username: req.body.Username,
@@ -231,7 +176,7 @@ app.put('/users/:Password', (req, res) => {
 
 
 //DELETE Requests
-app.delete('/users/:Username/Movies/:MovieID', (req, res) => {
+app.delete('/Users/:Username/FavoriteMovies/:MovieID', (req, res) => {
     Users.findOneAndUpdate({ Username: req.body.Username}, { $pull: 
         { FavoriteMovies: req.params.MovieID }
     }, {new: true})
@@ -244,7 +189,7 @@ app.delete('/users/:Username/Movies/:MovieID', (req, res) => {
     });
 });
 
-app.delete('/users/:username', (req, res) => {
+app.delete('/Users/:Username', (req, res) => {
     Users.findOneAndRemove({ Username: req.params.Username })
         .then((user) => {
             if (!user) {
