@@ -1,8 +1,7 @@
-
 const express = require('express');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
@@ -10,6 +9,8 @@ const Users = Models.User;
 mongoose.connect('mongodb://localhost:27017/MovieDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
+
+
 
 // Middleware
 app.use(express.static('public'));
