@@ -16,7 +16,7 @@ table {
     width: 100%;
 }
 thead {
-    background-color: #4193FF;
+    background-color: #000;
     color: white;
 }
 
@@ -24,7 +24,6 @@ th {
     height: 30px;
     padding: 10px;
     border: 2px solid white;
-    font-weight: 300;
 }
 
 td {
