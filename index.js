@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 const Movies = Models.Movie;
@@ -11,7 +12,7 @@ const app = express();
 
 // Middleware
 app.use(express.static('public'));
-
+app.use(bodyParser.json());
 app.use(morgan('common'));
 
 app.use((err, req, res, next) => {
