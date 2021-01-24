@@ -64,7 +64,8 @@ app.get('/Movies/:Title', (req, res) => {
 
 app.get('/Genres/:Name', (req, res) => {
     Movies.findOne({ 'Genre.Name': req.params.Name })
-        .then((genre) => {
+        .then((movie) => {
+            let genre = movie['Genre'];
             res.status(200).json(genre);
         })
         .catch((error) => {
@@ -75,7 +76,8 @@ app.get('/Genres/:Name', (req, res) => {
 
 app.get('/Directors/:Name', (req, res) => {
     Movies.findOne({ 'Director.Name': req.params.Name })
-        .then((director) => {
+        .then((movie) => {
+            let director = movie['Director'];
             res.status(200).json(director);
         })
         .catch((error) => {
@@ -140,43 +142,6 @@ app.put('/Users/:Username', (req, res) => {
         res.status(500).send('Error: ' + error);
     });
 });
-
-app.put('/Users/:Email', (req, res) => {
-    Users.findOneAndUpdate({ Email: req.params.Email}, { $set: 
-        {
-            Username: req.body.Username,
-            Password: req.body.Password,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday
-        }
-    }, {new: true})
-    .then((updatedUser) => {
-        res.status(201).json(updatedUser);
-    })
-    .catch((error) => {
-        console.error(error);
-        res.status(500).send('Error: ' + error);
-    });
-});
-
-app.put('/Users/:Password', (req, res) => {
-    Users.findOneAndUpdate({ Password: req.params.Password}, { $set: 
-        {
-            Username: req.body.Username,
-            Password: req.body.Password,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday
-        },
-    }, {new: true})
-    .then((updatedUser) => {
-        res.status(201).json(updatedUser);
-    })
-    .catch((error) => {
-        console.error(error);
-        res.status(500).send('Error: ' + error);
-    });
-});
-
 
 //DELETE Requests
 app.delete('/Users/:Username/FavoriteMovies/:MovieID', (req, res) => {
