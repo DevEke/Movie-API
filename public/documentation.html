@@ -36,14 +36,14 @@
         </tr>
         <tr>
           <td>Gets information about a genre based on the name</td>
-          <td>/genres/[Name]</td>
+          <td>/movies/genres/[Name]</td>
           <td>GET</td>
           <td>None</td>
           <td>A JSON object holding data about a single genre, containing name and description</td>
         </tr>
         <tr>
           <td>Gets information about a direction based on the name</td>
-          <td>/directors/[Name]</td>
+          <td>/movies/directors/[Name]</td>
           <td>GET</td>
           <td>None</td>
           <td>A JSON object holding data about a single director, containing a bio, birth year, and death year</td>
@@ -57,35 +57,35 @@
         </tr>
         <tr>
           <td>Updates a user's username</td>
-          <td>/users/[username]/username</td>
+          <td>/users/[id]/username</td>
           <td>PUT</td>
           <td>None</td>
           <td>A text confirmation message that the username has been succesfully updated</td>
         </tr>
         <tr>
           <td>Updates a user's password</td>
-          <td>/users/[username]/password</td>
+          <td>/users/[id]/password</td>
           <td>PUT</td>
           <td>None</td>
           <td>A text confirmation message that the password has been succesfully updated</td>
         </tr>
         <tr>
           <td>Updates a user's email</td>
-          <td>/users/[username]/email</td>
+          <td>/users/[id]/email</td>
           <td>PUT</td>
           <td>None</td>
           <td>A text confirmation message that the email has been succesfully updated</td>
         </tr>
         <tr>
           <td>Adds a movie to a user's favorites list</td>
-          <td>/users/[username]/favorites</td>
+          <td>/users/[id]/favoritemovies</td>
           <td>POST</td>
           <td>None</td>
           <td>A text and visual confirmation message that the movie has been added to the user's favorites list</td>
         </tr>
         <tr>
           <td>Removes a movie from a user's favorites list</td>
-          <td>/users/[username]/favorites</td>
+          <td>/users/[id]/favoritemovies</td>
           <td>DELETE</td>
           <td>None</td>
           <td>A text and visual confirmation message that the movie has been removed from the user's favorites list</td>
