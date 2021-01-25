@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     res.status(200).send(message);
 })
 
-app.get('/Movies', (req, res) => {
+app.get('/movies', (req, res) => {
     Movies.find()
         .then((movies) => {
             res.status(200).json(movies);
@@ -40,7 +40,7 @@ app.get('/Movies', (req, res) => {
         });
 });
 
-app.get('/Users/:Username', (req, res) => {
+app.get('/users/:Username', (req, res) => {
     Users.findOne({ Username: req.params.Username})
         .then((user) => {
             res.status(200).json(user);
@@ -51,7 +51,7 @@ app.get('/Users/:Username', (req, res) => {
         });
 });
 
-app.get('/Movies/:Title', (req, res) => {
+app.get('/movies/:Title', (req, res) => {
     Movies.findOne({ Title: req.params.Title})
         .then((movie) => {
             res.status(200).json(movie);
@@ -62,7 +62,7 @@ app.get('/Movies/:Title', (req, res) => {
         });
 });
 
-app.get('/Genres/:Name', (req, res) => {
+app.get('/genres/:Name', (req, res) => {
     Movies.findOne({ 'Genre.Name': req.params.Name })
         .then((movie) => {
             let genre = movie['Genre'];
@@ -74,7 +74,7 @@ app.get('/Genres/:Name', (req, res) => {
         });
 });
 
-app.get('/Directors/:Name', (req, res) => {
+app.get('/directors/:Name', (req, res) => {
     Movies.findOne({ 'Director.Name': req.params.Name })
         .then((movie) => {
             let director = movie['Director'];
@@ -88,7 +88,7 @@ app.get('/Directors/:Name', (req, res) => {
 
 
 // POST Requests
-app.post('/Users', (req, res) => {
+app.post('/users', (req, res) => {
     Users.findOne({ Username: req.body.Username })
         .then((user) => {
             if (user) {
@@ -111,7 +111,7 @@ app.post('/Users', (req, res) => {
         });
 });
 
-app.post('/Users/:Username/FavoriteMovies/:MovieID', (req, res) => {
+app.post('/users/:Username/favorites/:MovieID', (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, { $push: 
         { FavoriteMovies: req.params.MovieID }
     }, {new: true})
@@ -125,7 +125,7 @@ app.post('/Users/:Username/FavoriteMovies/:MovieID', (req, res) => {
 });
 
 // PUT Requests
-app.put('/Users/:Username', (req, res) => {
+app.put('/users/:Username', (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username}, { $set: 
         {
             Username: req.body.Username,
@@ -144,7 +144,7 @@ app.put('/Users/:Username', (req, res) => {
 });
 
 //DELETE Requests
-app.delete('/Users/:Username/FavoriteMovies/:MovieID', (req, res) => {
+app.delete('/users/:Username/favorites/:MovieID', (req, res) => {
     Users.findOneAndUpdate({ Username: req.body.Username}, { $pull: 
         { FavoriteMovies: req.params.MovieID }
     }, {new: true})
@@ -157,7 +157,7 @@ app.delete('/Users/:Username/FavoriteMovies/:MovieID', (req, res) => {
     });
 });
 
-app.delete('/Users/:Username', (req, res) => {
+app.delete('/users/:Username', (req, res) => {
     Users.findOneAndRemove({ Username: req.params.Username })
         .then((user) => {
             if (!user) {
