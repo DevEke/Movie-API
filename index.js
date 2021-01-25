@@ -3,9 +3,10 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Models = require('./models.js');
+const passport = require('passport');
 const Movies = Models.Movie;
 const Users = Models.User;
-
+require('./passport');
 mongoose.connect('mongodb://localhost:27017/MovieDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
@@ -16,6 +17,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(morgan('common'));
+let auth = require('./auth')(app);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
