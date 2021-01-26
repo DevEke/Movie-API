@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator');
 const Models = require('./models.js');
 const passport = require('passport');
 const Movies = Models.Movie;
