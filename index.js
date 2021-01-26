@@ -10,7 +10,6 @@ const Movies = Models.Movie;
 const Users = Models.User;
 require('./passport');
 //mongoose.connect('mongodb://localhost:27017/MovieDB', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect('mongodb+srv://MovieDBadmin:Melinda0716@moviedb.jklld.mongodb.net/MooviesDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
 
