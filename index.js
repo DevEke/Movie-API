@@ -12,10 +12,21 @@ mongoose.connect('mongodb://localhost:27017/MovieDB', { useNewUrlParser: true, u
 
 const app = express();
 
-
+let allowedOrigins = ['http://localhost:8080']
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin) {
+            return callback(null. true);
+        }
+        if (allowedOrigins.indexOf(origin) === -1 ) {
+            let message = 'The CORS policy for this application doesn\'t allow access from origin ' + origin;
+            return callback(new Error(message), false);
+        }
+        return callback(null, true);
+    }
+}));
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(morgan('common'));
