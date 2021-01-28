@@ -27,6 +27,15 @@ app.use((err, req, res, next) => {
     res.status(500).send("Sorry, Something went wrong!");
 });
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+});
+
 
 // GET requests
 app.get('/', (req, res) => {
