@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
 const Models = require('./models.js');
@@ -9,8 +10,9 @@ const passport = require('passport');
 const Movies = Models.Movie;
 const Users = Models.User;
 require('./passport');
+dotenv.config();
 //mongoose.connect('mongodb://localhost:27017/MovieDB', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
 
