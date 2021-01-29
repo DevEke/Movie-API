@@ -145,21 +145,22 @@ app.put('/users/:Username',passport.authenticate('jwt', {session: false}), [
     check('Password', 'Password is required.').not().isEmpty(),
     check('Email', 'Email does not appear to be valid.').isEmail()
     ], (req, res) => {
-    Users.findOneAndUpdate({ Username: req.params.Username}, { $set: 
-        {
-            Username: req.body.Username,
-            Password: req.body.Password,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday
-        }
-    }, { new: true })
-    .then((updatedUser) => {
-        res.status(201).json(updatedUser);
-    })
-    .catch((error) => {
-        console.error(error);
-        res.status(500).send('Error: ' + error);
-    });
+        let hashedPassword = Users.hashPassword(req.body.Password);
+        Users.findOneAndUpdate({ Username: req.params.Username}, { $set: 
+            {
+                Username: req.body.Username,
+                Password: hashedPassword,
+                Email: req.body.Email,
+                Birthday: req.body.Birthday
+            }
+        }, { new: true })
+        .then((updatedUser) => {
+            res.status(201).json(updatedUser);
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send('Error: ' + error);
+        });
     let errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(422).json({errors: errors.array()});
