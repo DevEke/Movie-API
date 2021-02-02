@@ -171,7 +171,7 @@ app.put('/users/:Username',passport.authenticate('jwt', {session: false}), [
 
 //DELETE Requests
 app.delete('/users/:Username/favorites/:MovieID',passport.authenticate('jwt', {session: false}), (req, res) => {
-    Users.findOneAndUpdate({ Username: req.body.Username}, { $pull: 
+    Users.findOneAndUpdate({ Username: req.params.Username}, { $pull: 
         { FavoriteMovies: req.params.MovieID }
     }, {new: true})
     .then((updatedList) => {
