@@ -14,6 +14,7 @@ let movieSchema = mongoose.Schema({
         Description: {type: String, required: true}
     },
     ImageURL: {type: String},
+    BackdropImage: {type: String},
     ReleaseDate: {type: Date, required: true},
     Featured: {type: Boolean}
 });
